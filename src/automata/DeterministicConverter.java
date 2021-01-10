@@ -12,7 +12,7 @@ public class DeterministicConverter {
 				return n;
 			}
 
-		Automata d = new Automata();
+		Automata d = new Automata(n.isFinishingState(0));
 		d.getNodeNames().set(0, n.getNodeNames().get(0));
 		d.muteAlerts(true);
 
@@ -50,7 +50,7 @@ public class DeterministicConverter {
 				}
 				entityToAdd = entityToAdd.substring(1);
 				d.addNode(entityToAdd, finishingState);
-
+				
 				d.addConnection(d.getNodeNR(d.getNodeNames().get(line)), input, d.getNodeNR(entityToAdd));
 			}
 		}

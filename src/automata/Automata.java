@@ -16,7 +16,7 @@ public class Automata {
 	// (node) (input) (list of possible Operations)
 	private List<List<List<Operation>>> matrix;
 
-	public Automata() {
+	public Automata(boolean finishByDefault) {
 		muteAlerts = false;
 
 		finishingStates = new ArrayList<>();
@@ -25,7 +25,11 @@ public class Automata {
 
 		matrix = new ArrayList<>();
 
-		addNode("q0");
+		addNode("q0", finishByDefault);
+	}
+	
+	public Automata() {
+		this(false);
 	}
 
 	public boolean addNode(String name) {
